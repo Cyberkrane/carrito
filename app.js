@@ -344,7 +344,7 @@ function comprar() {
     }
 
     // msj = listaCap.split(rule).join(" ");
-    msj = listaCap.replace(/\X/g, '\n\r');
+    msj = listaCap.replace(/r?\X/g, '\n\r');
 
     mensajeFinal += '<a href="' + whats + msj + 'total: $ ' + importe.textContent + '">' +
         '<i class="fab fa-whatsapp" aria-hidden="true">' + '</i>' +
