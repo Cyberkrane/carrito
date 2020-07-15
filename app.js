@@ -332,24 +332,27 @@ function comprar() {
     var listaCap = ''; // inicia variable vacia para los productos que se agreguen al carrito.
     var whats = 'https://api.whatsapp.com/send?phone=5493513060928&text=';
     var mensajeFinal;
-    var rule = /\s{1,}/g;
+    // var rule = /\s{1,}/g;
+    // mystring = mystring.replace(/\/r/g, '/');
 
 
     for (let i = 0; i < carrito.length; i++) {
 
         listaCap += carrito[i].textContent;
 
+
     }
 
-    msj = listaCap.split(rule).join("%");
+    // msj = listaCap.split(rule).join(" ");
+    msj = listaCap.replace(/\X/g, '\n\r');
 
-    mensajeFinal += '<a href="' + whats + msj + importe.textContent + '">' +
+    mensajeFinal += '<a href="' + whats + msj + 'total: $ ' + importe.textContent + '">' +
         '<i class="fab fa-whatsapp" aria-hidden="true">' + '</i>' +
         '</a>'
 
     document.getElementById('pedido').innerHTML = mensajeFinal;
 
-    console.log(msj + importe.textContent);
+    console.log(msj + 'total: $ ' + importe.textContent);
 
 
     return carrito;
